@@ -6,14 +6,17 @@ We acknowledge the myriad existance of factors, both significant and inferred, b
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Data](#data)
-5. [Analysis](#analysis)
-6. [Findings](#results)
-7. [License](#license)
-8. [Contact](#contact)
+- [US Political Polarization](#us-political-polarization)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Virtual Environments](#virtual-environments)
+  - [Usage](#usage)
+  - [Data](#data)
+    - [References](#references)
+  - [License](#license)
+  - [Contact](#contact)
 
 ## Introduction
 
@@ -50,16 +53,12 @@ Primary datasets were obtained from [VoteView](https://www.voteview.com) as of 2
 ### References
 
 Additional resource references supplemental to data processing and analysis:
+- [*Substance and Change in Congressional Ideology* by Devin Caughey and Eric Schickler](http://hdl.handle.net/1721.1/105926)
 - [*Broken Contract?* by Stephen C Craig](https://doi.org/10.4324/9780429502002)
+- [*The Punishment of Negationism* by Emanuela Fronza](https://lawreview.vermontlaw.edu/wp-content/uploads/2012/02/fronza.pdf)
+- [*The Red Scare* by the History Channel](https://www.history.com/topics/cold-war/red-scare)
 - [*Spacial Modeling of Parliamentary Voting* by Keith T Poole](https://doi.org/10.1017/CBO9780511614644)
-
-## Analysis
-
-TBD
-
-## Findings
-
-TBD
+- [*An Estimator of Mutual Information and its Application to Independence Testing* by Joe Suzuki](https://doi.org/10.3390/e18040109)
 
 ## License
 
