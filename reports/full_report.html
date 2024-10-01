@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Political Polarization</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="political-polarization">Political Polarization</h1>
+<p><strong>AJ Marcus</strong><br>
+<a href="http://www.copper-panda.consulting">Copper Panda Consulting</a><br>
+2024-09-30</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#background">Background</a></li>
+<li><a href="#methodology">Methodology</a></li>
+<li><a href="#findings">Findings</a></li>
+</ul>
+<h2 id="abstract">Abstract</h2>
+<p>Politics has become a large societal concern in the United States and the polarizing stances on common issues has given way to social unrest, tension, and distrust. Utilizing Congressional Voting, Membership, and Ideology data from <a href="https://www.voteview.com">VoteView</a>, this report validates and expands current reserach about the polarization of political opinion since the Democratic New Deal era of the 1960s. <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>This report identified and validated the origin of polarization in line with expectations, along with the growing radicalization of Conservative right-wing Party memebrs.</p>
+<p>Additionally, this report was able to determine each Congress Session acts independently of its siblings, with minor deviations under similar Presidental eras.</p>
+<p>Data showed stability and structure, supporting potential advanced analysis and prediction models assuming additional data sources can be obtained to close weaknesses in the compilation and computation methods of the nominate mean scores.</p>
+<h2 id="background">Background</h2>
+<p>Modern media has an endless supply of content showcasing the polarizing and radical political opinions of the country's two-party system. The younger Citizens and generations are feeling a compulsion to tribalism and segregation without the ability to counteract the historical negationism of our political composition prior to the 1970s.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<p>Millenials are the leading workforce generation and a significant voting body for the country. The last election in 2022 noted a significant voter turnout of Generation Z (Gen Z), once again changing the paradigm of American politics.</p>
+<p>Millenials are familiar with our changing Government, having lived through several major events affecting our culture and lifestyle, including the 9/11 attacks, Black Lives matter movement, the Housing Financial Crash of 2008, and most recently, COVID-19. They also saw the aftermath of the Vietnam war and the fall of the Soviet Union through their parents. Milenials lived through the transition to our modern digital era, knowing a lifestyle before and after the integration of devices we now take as commonplace.</p>
+<p>There is a sense of political tension that has become standard in our country; an <em>us versus them</em> mentality which is creating a self-fueled division in society. This report aims to identify this division as non-standard and thereby claim its existence is unacceptable and worth of purging from our communities.</p>
+<h2 id="methodology">Methodology</h2>
+<p>This report aims to utilize public and professionally compiled records to determine the several conclusions as a standalone report, and as a baseline to allow future and further analysis on the topic.</p>
+<p>The goals of this report are:</p>
+<ol>
+<li>
+<p>Confirm the existence of political polarization around the end of the American New Deal Era.</p>
+</li>
+<li>
+<p>Determine if the polarization occurrs in isolation by Presidential Party or Congressional body.</p>
+</li>
+<li>
+<p>Establish a baseline of reliable resources to potentially build voting delegate prediction models.</p>
+</li>
+</ol>
+<p>This report will analize data using established exploratory and statistical methods without making the assumption on any nown distribution or evolution of the data. Significance tests and visualizations will be utilized whenever possible and references to independent research or analysis will be incorporated to either support or challenge the findings of this report.</p>
+<p>Data will be restricted to accredited sources produced from significant testing and validation of utility. Semantic data sources must be established and built upon the scientific method.</p>
+<p>This report acknowledges the myriad existance of factors, both significant and inferred, beyond the scope any single analysis can ascertain; instead, we hope to build a foundation for expansion and insight.</p>
+<h3 id="data-sourcing">Data Sourcing</h3>
+<p>The primary data source for this report will be extracted from <a href="http://www.voteview.com">VoteView</a> as the predominant and expert collection of composition, votes, and actions of the US Congress. This source contains records historical to the first Congressional Congress and is actively updated for accuracy and current relevance. The source authors have established their own statistical metrics with a robust and vetted process suitable for the needs of this report.</p>
+<p>VoteView provides multiple statistical dimensions for evaluation of liberal versus conservative dispositions, along with a more comprehensive multi-dimensional analysis.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> We decided to exclude any analysis with the second dimension due to its history of academic challenge and pedigree of utility in predictive analytics over long time periods.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>Supplemental data setes, such as political event timelines and Presidential terms were collected from multiple public domain resources.</p>
+<h3 id="data-composition">Data Composition</h3>
+<p>VoteView's data is event driven with known symmetrical bounds about the nominate statistic. This dimension has the potential to be normally distributed and will be treated as the known population, in lieu of a statistical strata or sample due to its record volume and exhaustive data lineage.</p>
+<p>There are additional data elements available, such as <code>Vote Result</code> which may align with discrete distributions such as Bernouli, depending on the dimensionality available.</p>
+<p>Predictive features may consider decay-based distributions given available time intervals, and this report should consider such models as Poisson for those analytical segments. Again, much like the primary assumptiions of the data, any analysis should treat the base models as representative of the Congressional population and not as a subset sample.</p>
+<h2 id="findings">Findings</h2>
+<p>This report was successfull in meeting all its goals and was able to establish multiple key results. The dictated methodology provided a solid structure to evaluate within without a negative impact on outcomes.</p>
+<h3 id="non-normal-distributions">Non-Normal Distributions</h3>
+<p>This report concluded that voting histories from Congress were not normally distributed as a whole, nor as individual congressional bodies. Political Party is not relatable to any consistent distribution without binning along time variables; further formal analysis in this dimension is suspended because such binning is an arbitrary lexicon and beyond the immediate scope of this report.</p>
+<p><img src="./images/gCongressQuantile.png" alt=""><br>
+<code>quantile-quantile breakdown showing non-normality</code></p>
+<h3 id="polarization-began-in-1969">Polarization Began in 1969</h3>
+<p>Current political polarization notably began in 1969 which aligns with the end of the American New Deal era. There were several major political and sociological events impacting the US which have a strong correlation of effect to the timing of this change. The severe impact the Vietnam War had on the Citizens' trust in the Government and the exporting &quot;welfare&quot; economy were tangible drivers in ending the Democratic benefits and subsidies of the early 1960s.</p>
+<p>Civil Rights movements took full swing and the US was a major global participant in activities beyond its borders, all driving tensions between the Party lines as distrust and Nationalism took hold. The 1970s would enhance this with fears of McCarthyism returning as a third Red Scare.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<p>Future analysis could provide a deep-dive comparison of factors affecting the polarization as they relate to specific events and timing of these various major national and global events.</p>
+<h3 id="independent-congress-sessions">Independent Congress Sessions</h3>
+<p>This report identified large and disparate variances of Party and voting composition within each Congress Session. This variance strongly infers a notable independence from the Political Party baseline and each Session predicessor (or successor). The one visible caveat to this finding is the similarity of Congress Sessions to act in similar manner when under a single Presidence. This similarity is notable but not significant enough to suggest the President controls the Congressional bodies beneath him while in office.</p>
+<p>Additional similarities of a lesser nature appeared when Presidents of the same Party and with similar dispositions had a sustaining effect of some (but not most) Congress Sessions.</p>
+<p>This report suggests further analysis with tests akin to Mutual Information significancee to reinforce the finding of independence.<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<h3 id="congressional-bodies-inviable-to-polarization-drivers">Congressional Bodies Inviable to Polarization Drivers</h3>
+<p>Testing the independence of individual House and Senate votes provide no significant insight when using the Congress Session as a whole entity. This is an expected outcome as each side of Congress are forced to work in tandem to enact any laws or actions. Historically the House has been more Democratic with the Senate being majority Republican. These alignments have remained static since the 1870s and shows no sign of changing.</p>
+<p><img src="./images/gMembershipCriticalOverlay.png" alt=""><br>
+<code>Nominate Mean timeseries showing Congress holds the House and Senate central to its movement</code></p>
+<h3 id="right-wing-radicalization">Right-Wing Radicalization</h3>
+<p>The nominate mean difference between each Political Party shows a curious trend not present since the 1910s; radicalization of right-wing conservative views. The distance, or spread, between the nominate means show a clear and present polarization of activity within Congress. However, noting the relatively calm deviation shown by the Democratic Party, the Conservative spectrum is steadily moving toward extremism and is presently the largest extreme in the history available.</p>
+<p>Future reporting would benefit from following the trend to identify the turning point at which the Conservative race breaks and begins to return toward neutrality.</p>
+<p>Additionally, collaborative reporting to dive into why the adoption of Conservative views has gained movement and popularity in contrast to the Democratic baseline, as the radicalism spectrums would not be present without the American body allowing the representation reflected in Congress.</p>
+<p><img src="./images/gPartyPolarity.png" alt=""><br>
+<code>Party disposition timeseries of mean distance</code></p>
+<h3 id="voting-predictions">Voting Predictions</h3>
+<p>The data utilized in this report shows a robust and stable base of information which would be supportive of a predictive voting model for individual Congressional Members. However, the information contained in this data source are compiled ex post facto and would likely produce a weak model without supplementing some resource that does a preliminary analysis of political spectrum prior to the vote-execution.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><a href="https://doi.org/10.4324/9780429502002"><em>Broken Contract?</em> by Stephen C Craig</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><a href="https://lawreview.vermontlaw.edu/wp-content/uploads/2012/02/fronza.pdf"><em>The Punishment of Negationism</em> by Emanuela Fronza</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><a href="https://doi.org/10.1017/CBO9780511614644"><em>Spacial Modeling of Parliamentary Voting</em> by Keith T Poole</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p><a href="http://hdl.handle.net/1721.1/105926"><em>Substance and Change in Congressional Ideology</em> by Devin Caughey and Eric Schickler</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p><a href="https://www.history.com/topics/cold-war/red-scare"><em>The Red Scare</em> by the History Channel</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p><a href="https://doi.org/10.3390/e18040109"><em>An Estimator of Mutual Information and its Application to Independence Testing</em> by Joe Suzuki</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+            
+            
+        </body>
+        </html>

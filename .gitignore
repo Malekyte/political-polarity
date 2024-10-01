@@ -1,9 +1,7 @@
 # Folders
 .*/
 __pycache__/
+data/
 
 # Files
 .env
-
-# Large Files (bypass LFS)
-data/*.csv
