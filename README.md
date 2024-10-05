@@ -28,7 +28,7 @@ pip install -r requirements.txt
 This GitHub is a self-contained data science project and designed to be accessed via folder and file tree. The source information and generating files are located in the `root` folder with report extracts, including HTML and PDF documents, located in the `reports` subfolder.
 
 ### Analysis Files
-the python notebook files are independent analysis depending on the aspect or function of the analysis. Because each notebook is a self-contained group of analysis, there may be overlap or duplicity in the content from one notebook to another.
+The python notebook files are independent analysis depending on the aspect or function of the analysis. Because each notebook is a self-contained group of analysis, there may be overlap or duplicity in the content from one notebook to another.
 
 ### Initializing Datasets
 > <span style="color: red;">Initializing data is not required to view any outputs of this report, see `reports` subfolder for self-contained and pre-generated outputs.</span>
