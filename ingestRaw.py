@@ -28,7 +28,7 @@ def ingestCongressVote():
     )
     return congressVotes_raw
 
-def ingestMemberVote():
+def ingestMemberIdea():
     dataTypes = {
         'congress': 'Int64',
         'chamber': str,
@@ -59,3 +59,19 @@ def ingestMemberVote():
         low_memory= False
     )
     return memberIdeas_raw
+
+def ingestMemberVote():
+    dataTypes = {
+        'congress': 'Int64',
+        'chamber': str,
+        'rollnumber': 'Int64',
+        'icpsr': 'Int64',
+        'cast_code': 'Int64',
+        'prob': float
+    }
+    memberVotes_raw = pd.read_csv(
+        "data/MemberVotes.csv",
+        dtype= dataTypes,
+        low_memory= False
+    )
+    return memberVotes_raw
