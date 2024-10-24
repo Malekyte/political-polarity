@@ -1,144 +1,383 @@
 <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Political Polarization</title>
-            <style>
-/* From extension vscode.github */
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [['$','$'], ['\\(','\\)']]}});</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS": {"availableFonts":["TeX"],"scale": 150}});</script>
+
+<style>
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-.vscode-dark img[src$=\#gh-light-mode-only],
-.vscode-light img[src$=\#gh-dark-mode-only],
-.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
-.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
-	display: none;
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
 }
 
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
 </style>
-            
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+
 <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        <style>
-.task-list-item {
-    list-style-type: none;
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
 }
 
-.task-list-item-checkbox {
-    margin-left: -20px;
-    vertical-align: middle;
-    pointer-events: none;
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
 }
 </style>
+
 <style>
-:root {
-  --color-note: #0969da;
-  --color-tip: #1a7f37;
-  --color-warning: #9a6700;
-  --color-severe: #bc4c00;
-  --color-caution: #d1242f;
-  --color-important: #8250df;
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
 }
 
 </style>
-<style>
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-note: #2f81f7;
-    --color-tip: #3fb950;
-    --color-warning: #d29922;
-    --color-severe: #db6d28;
-    --color-caution: #f85149;
-    --color-important: #a371f7;
-  }
-}
 
-</style>
-<style>
-.markdown-alert {
-  padding: 0.5rem 1rem;
-  margin-bottom: 16px;
-  color: inherit;
-  border-left: .25em solid #888;
-}
-
-.markdown-alert>:first-child {
-  margin-top: 0
-}
-
-.markdown-alert>:last-child {
-  margin-bottom: 0
-}
-
-.markdown-alert .markdown-alert-title {
-  display: flex;
-  font-weight: 500;
-  align-items: center;
-  line-height: 1
-}
-
-.markdown-alert .markdown-alert-title .octicon {
-  margin-right: 0.5rem;
-  display: inline-block;
-  overflow: visible !important;
-  vertical-align: text-bottom;
-  fill: currentColor;
-}
-
-.markdown-alert.markdown-alert-note {
-  border-left-color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-note .markdown-alert-title {
-  color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-important {
-  border-left-color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-important .markdown-alert-title {
-  color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-warning {
-  border-left-color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-warning .markdown-alert-title {
-  color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-tip {
-  border-left-color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-tip .markdown-alert-title {
-  color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-caution {
-  border-left-color: var(--color-caution);
-}
-
-.markdown-alert.markdown-alert-caution .markdown-alert-title {
-  color: var(--color-caution);
-}
-
-</style>
-        
-        </head>
-        <body class="vscode-body vscode-light">
-            <h1 id="political-polarization">Political Polarization</h1>
+</head>
+<body>
+<h1 id="political-polarization">Political Polarization</h1>
 <p><strong>AJ Marcus</strong><br>
 <a href="http://www.copper-panda.consulting">Copper Panda Consulting</a><br>
 2024-09-30</p>
@@ -150,15 +389,17 @@
 <li><a href="#findings">Findings</a></li>
 </ul>
 <h2 id="abstract">Abstract</h2>
-<p>Politics has become a large societal concern in the United States and the polarizing stances on common issues has given way to social unrest, tension, and distrust. Utilizing Congressional Voting, Membership, and Ideology data from <a href="https://www.voteview.com">VoteView</a>, this report validates and expands current reserach about the polarization of political opinion since the Democratic New Deal era of the 1960s. <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>Politics has become a large societal concern in the United States and the polarizing stances on common issues has given way to social unrest, tension, and distrust. Utilizing Congressional Voting, Membership, and Ideology data from <a href="https://www.voteview.com">VoteView</a>, this report validates and expands current reserach about the polarization of political opinion since the Democratic New Deal era of the 1960s. [^1]</p>
 <p>This report identified and validated the origin of polarization in line with expectations, along with the growing radicalization of Conservative right-wing Party memebrs.</p>
 <p>Additionally, this report was able to determine each Congress Session acts independently of its siblings, with minor deviations under similar Presidental eras.</p>
 <p>Data showed stability and structure, supporting potential advanced analysis and prediction models assuming additional data sources can be obtained to close weaknesses in the compilation and computation methods of the nominate mean scores.</p>
+<p>[^1]: <a href="https://doi.org/10.4324/9780429502002"><em>Broken Contract?</em> by Stephen C Craig</a></p>
 <h2 id="background">Background</h2>
-<p>Modern media has an endless supply of content showcasing the polarizing and radical political opinions of the country's two-party system. The younger Citizens and generations are feeling a compulsion to tribalism and segregation without the ability to counteract the historical negationism of our political composition prior to the 1970s.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<p>Modern media has an endless supply of content showcasing the polarizing and radical political opinions of the country's two-party system. The younger Citizens and generations are feeling a compulsion to tribalism and segregation without the ability to counteract the historical negationism of our political composition prior to the 1970s.[^2]</p>
 <p>Millenials are the leading workforce generation and a significant voting body for the country. The last election in 2022 noted a significant voter turnout of Generation Z (Gen Z), once again changing the paradigm of American politics.</p>
 <p>Millenials are familiar with our changing Government, having lived through several major events affecting our culture and lifestyle, including the 9/11 attacks, Black Lives matter movement, the Housing Financial Crash of 2008, and most recently, COVID-19. They also saw the aftermath of the Vietnam war and the fall of the Soviet Union through their parents. Milenials lived through the transition to our modern digital era, knowing a lifestyle before and after the integration of devices we now take as commonplace.</p>
 <p>There is a sense of political tension that has become standard in our country; an <em>us versus them</em> mentality which is creating a self-fueled division in society. This report aims to identify this division as non-standard and thereby claim its existence is unacceptable and worth of purging from our communities.</p>
+<p>[^2]: <a href="https://lawreview.vermontlaw.edu/wp-content/uploads/2012/02/fronza.pdf"><em>The Punishment of Negationism</em> by Emanuela Fronza</a></p>
 <h2 id="methodology">Methodology</h2>
 <p>This report aims to utilize public and professionally compiled records to determine the several conclusions as a standalone report, and as a baseline to allow future and further analysis on the topic.</p>
 <p>The goals of this report are:</p>
@@ -176,10 +417,13 @@
 <p>This report will analize data using established exploratory and statistical methods without making the assumption on any nown distribution or evolution of the data. Significance tests and visualizations will be utilized whenever possible and references to independent research or analysis will be incorporated to either support or challenge the findings of this report.</p>
 <p>Data will be restricted to accredited sources produced from significant testing and validation of utility. Semantic data sources must be established and built upon the scientific method.</p>
 <p>This report acknowledges the myriad existance of factors, both significant and inferred, beyond the scope any single analysis can ascertain; instead, we hope to build a foundation for expansion and insight.</p>
+<p>When creating a predictive model for vote casting oucomes, it's anticipated the simpler models will be more effective than complex with regards to independent dimensions, and low calibration (or specificity) models will be more effective than focused-purpose models.</p>
 <h3 id="data-sourcing">Data Sourcing</h3>
 <p>The primary data source for this report will be extracted from <a href="http://www.voteview.com">VoteView</a> as the predominant and expert collection of composition, votes, and actions of the US Congress. This source contains records historical to the first Congressional Congress and is actively updated for accuracy and current relevance. The source authors have established their own statistical metrics with a robust and vetted process suitable for the needs of this report.</p>
-<p>VoteView provides multiple statistical dimensions for evaluation of liberal versus conservative dispositions, along with a more comprehensive multi-dimensional analysis.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> We decided to exclude any analysis with the second dimension due to its history of academic challenge and pedigree of utility in predictive analytics over long time periods.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>VoteView provides multiple statistical dimensions for evaluation of liberal versus conservative dispositions, along with a more comprehensive multi-dimensional analysis.[^3] We decided to exclude any analysis with the second dimension due to its history of academic challenge and pedigree of utility in predictive analytics over long time periods.[^4]</p>
 <p>Supplemental data setes, such as political event timelines and Presidential terms were collected from multiple public domain resources.</p>
+<p>[^3]: <a href="https://doi.org/10.1017/CBO9780511614644"><em>Spacial Modeling of Parliamentary Voting</em> by Keith T Poole</a></p>
+<p>[^4]: <a href="http://hdl.handle.net/1721.1/105926"><em>Substance and Change in Congressional Ideology</em> by Devin Caughey and Eric Schickler</a></p>
 <h3 id="data-composition">Data Composition</h3>
 <p>VoteView's data is event driven with known symmetrical bounds about the nominate statistic. This dimension has the potential to be normally distributed and will be treated as the known population, in lieu of a statistical strata or sample due to its record volume and exhaustive data lineage.</p>
 <p>There are additional data elements available, such as <code>Vote Result</code> which may align with discrete distributions such as Bernouli, depending on the dimensionality available.</p>
@@ -188,47 +432,51 @@
 <p>This report was successfull in meeting all its goals and was able to establish multiple key results. The dictated methodology provided a solid structure to evaluate within without a negative impact on outcomes.</p>
 <h3 id="non-normal-distributions">Non-Normal Distributions</h3>
 <p>This report concluded that voting histories from Congress were not normally distributed as a whole, nor as individual congressional bodies. Political Party is not relatable to any consistent distribution without binning along time variables; further formal analysis in this dimension is suspended because such binning is an arbitrary lexicon and beyond the immediate scope of this report.</p>
-<p><img src="./images/gCongressQuantile.png" alt=""><br>
+<p><img src="file:///g:/reports/images/gCongressQuantile.png" alt=""><br>
 <code>quantile-quantile breakdown showing non-normality</code></p>
 <h3 id="polarization-began-in-1969">Polarization Began in 1969</h3>
 <p>Current political polarization notably began in 1969 which aligns with the end of the American New Deal era. There were several major political and sociological events impacting the US which have a strong correlation of effect to the timing of this change. The severe impact the Vietnam War had on the Citizens' trust in the Government and the exporting &quot;welfare&quot; economy were tangible drivers in ending the Democratic benefits and subsidies of the early 1960s.</p>
-<p>Civil Rights movements took full swing and the US was a major global participant in activities beyond its borders, all driving tensions between the Party lines as distrust and Nationalism took hold. The 1970s would enhance this with fears of McCarthyism returning as a third Red Scare.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<p>Civil Rights movements took full swing and the US was a major global participant in activities beyond its borders, all driving tensions between the Party lines as distrust and Nationalism took hold. The 1970s would enhance this with fears of McCarthyism returning as a third Red Scare.[^5]</p>
 <p>Future analysis could provide a deep-dive comparison of factors affecting the polarization as they relate to specific events and timing of these various major national and global events.</p>
+<p>[^5]: <a href="https://www.history.com/topics/cold-war/red-scare"><em>The Red Scare</em> by the History Channel</a></p>
 <h3 id="independent-congress-sessions">Independent Congress Sessions</h3>
 <p>This report identified large and disparate variances of Party and voting composition within each Congress Session. This variance strongly infers a notable independence from the Political Party baseline and each Session predicessor (or successor). The one visible caveat to this finding is the similarity of Congress Sessions to act in similar manner when under a single Presidence. This similarity is notable but not significant enough to suggest the President controls the Congressional bodies beneath him while in office.</p>
 <p>Additional similarities of a lesser nature appeared when Presidents of the same Party and with similar dispositions had a sustaining effect of some (but not most) Congress Sessions.</p>
-<p>This report suggests further analysis with tests akin to Mutual Information significancee to reinforce the finding of independence.<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<p>This report suggests further analysis with tests akin to Mutual Information significancee to reinforce the finding of independence.[^6]</p>
+<p>[^6]: <a href="https://doi.org/10.3390/e18040109"><em>An Estimator of Mutual Information and its Application to Independence Testing</em> by Joe Suzuki</a></p>
 <h3 id="congressional-bodies-inviable-to-polarization-drivers">Congressional Bodies Inviable to Polarization Drivers</h3>
 <p>Testing the independence of individual House and Senate votes provide no significant insight when using the Congress Session as a whole entity. This is an expected outcome as each side of Congress are forced to work in tandem to enact any laws or actions. Historically the House has been more Democratic with the Senate being majority Republican. These alignments have remained static since the 1870s and shows no sign of changing.</p>
-<p><img src="./images/gMembershipCriticalOverlay.png" alt=""><br>
+<p><img src="file:///g:/reports/images/gMembershipCriticalOverlay.png" alt=""><br>
 <code>Nominate Mean timeseries showing Congress holds the House and Senate central to its movement</code></p>
 <h3 id="right-wing-radicalization">Right-Wing Radicalization</h3>
 <p>The nominate mean difference between each Political Party shows a curious trend not present since the 1910s; radicalization of right-wing conservative views. The distance, or spread, between the nominate means show a clear and present polarization of activity within Congress. However, noting the relatively calm deviation shown by the Democratic Party, the Conservative spectrum is steadily moving toward extremism and is presently the largest extreme in the history available.</p>
 <p>Future reporting would benefit from following the trend to identify the turning point at which the Conservative race breaks and begins to return toward neutrality.</p>
 <p>Additionally, collaborative reporting to dive into why the adoption of Conservative views has gained movement and popularity in contrast to the Democratic baseline, as the radicalism spectrums would not be present without the American body allowing the representation reflected in Congress.</p>
-<p><img src="./images/gPartyPolarity.png" alt=""><br>
+<p><img src="file:///g:/reports/images/gPartyPolarity.png" alt=""><br>
 <code>Party disposition timeseries of mean distance</code></p>
 <h3 id="voting-predictions">Voting Predictions</h3>
 <p>The data utilized in this report shows a robust and stable base of information which would be supportive of a predictive voting model for individual Congressional Members. However, the information contained in this data source are compiled ex post facto and would likely produce a weak model without supplementing some resource that does a preliminary analysis of political spectrum prior to the vote-execution.</p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><a href="https://doi.org/10.4324/9780429502002"><em>Broken Contract?</em> by Stephen C Craig</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p><a href="https://lawreview.vermontlaw.edu/wp-content/uploads/2012/02/fronza.pdf"><em>The Punishment of Negationism</em> by Emanuela Fronza</a> <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p><a href="https://doi.org/10.1017/CBO9780511614644"><em>Spacial Modeling of Parliamentary Voting</em> by Keith T Poole</a> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn4" class="footnote-item"><p><a href="http://hdl.handle.net/1721.1/105926"><em>Substance and Change in Congressional Ideology</em> by Devin Caughey and Eric Schickler</a> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn5" class="footnote-item"><p><a href="https://www.history.com/topics/cold-war/red-scare"><em>The Red Scare</em> by the History Channel</a> <a href="#fnref5" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn6" class="footnote-item"><p><a href="https://doi.org/10.3390/e18040109"><em>An Estimator of Mutual Information and its Application to Independence Testing</em> by Joe Suzuki</a> <a href="#fnref6" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
+<h2 id="prediction-modeling">Prediction Modeling</h2>
+<p>As an extention on its initial purposes, this report created a series of prediction models to determine if it was possible to predict membership vote castings. Independent models were created for each member, with results aggregated for a holistic view on the efficacy of the models as a whole. The purpose for this aggregation is because the relevance and utility of a single member is not sufficient to affect the large-scale bodies of Congress; while we may have individual models with large success (or failure), the elements as part of a whole are more valuable to practical applications.</p>
+<h3 id="specifications">Specifications</h3>
+<p>For the purposes of the model inputs, we restricted votes to the 101st Congress or later, due to the reliability and consistent formatting of data prior to those sessions. Voting aggregate samples were compared to published archives online to validate the accuracy of the raw input data. Additional subsetting was done to limit voting records to legislative actions on bills. This filtration prevents administrative or committee votes from diluting the results of the model with actions that do not have a proper nominate or political spectrum of actions. Final exclusions were make to restrict the data to only actual and paired votes; several iterations of Congress allowed members to cast an <em>announced</em> vote into record, which has negligible tangibility to enforced law or legislative action.[^7]</p>
+<p>Training datasets were provided from the first 70% of each Congressional Member's voting career, with Validation sets consisting of the next 20%, and testing as the final 10%. The purpose of this specific split was to align with the prediction efforts of reality and to prevent future-past data leakage from affecting the models.</p>
+<p>Given the input data is nominate scores that are aggregated and compiled after-the-fact of the votes, there is consideration the future-past data leakage is already present in the source data and would contaminate any model created from its contents; this report acknowledges its likelihood of existance as acceptable risk for the purposes of this report's academics.</p>
+<h3 id="model-selection">Model Selection</h3>
+<p>This report utilized logistic regressions and random forest classifiers to predict voting outcomes. The selection of these models is based on their ability to handle the input dimensions of both scalar numeric and categorical forms. These are the only two models selected because of the simplicity and low number of dimensions used as independent variables.</p>
+<p>Calibration techniques were not considered because of the project scope and reliability of logistic regressions being a baseline calibration for other models.</p>
+<h3 id="model-findings">Model Findings</h3>
+<p>Overall, the ability to predict member votes was mildly successfull with accuracy ratings averaging above 70%. There were minor outliers with results worse than random change factors; this report was unable to isolate a pattern or reason to the anomalies with the given data and finds them an acceptable footnote on risk of model performance.</p>
+<p><img src="file:///g:/reports/images/gLogisticRegressionAccuracy.png" alt=""><br>
+<code>Logistic regression accuracies for each member model</code></p>
+<p><img src="file:///g:/reports/images/gRandomForestAccuracy.png" alt=""><br>
+<code>Random forest accuracies for each member model</code></p>
+<p>The random forrest classifier showed a higher and wider range of accuracy scores than logistic regression, however the excessive variance and volatility in its results showed the stability and restrained nature of the logistic regression models to be more effective as a whole.</p>
+<p>The largest concern on consistency was the wide variance of accuracy results across members and the lack of a stability pattern when more votes, both in training and validation, did not produce a stronger predictive model. This suggests additional data outside the scope of this report may facet the results more accurately.</p>
+<p>There is additional question to the legitimacy of the models with the large spread of accuracy between validation and test sets, however, this occurrence is present with poor model accuracy and can be considered a collaborating effect of the poor outcome.</p>
+<h3 id="final-considerations">Final Considerations</h3>
+<p>The models show reasonable accuracy, however, should incorporate more information with the hopes of controlling the validation-test spread and affected outlier populations.</p>
+<p>[^7]: <a href="https://www.congress.gov/help/learn-about-the-legislative-process/enactment-of-a-law"><em>Enactment of a Law</em> by Congress.gov</a></p>
 
-            
-            
-        </body>
-        </html>
+</body>
+</html>
